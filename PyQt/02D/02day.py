@@ -14,8 +14,9 @@ __author__ = 'Liangz'
 
 
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
 from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import QCoreApplication
 
 
 class Ico(QWidget):
@@ -28,6 +29,12 @@ class Ico(QWidget):
         self.setGeometry(300, 300, 300, 220)
         self.setWindowTitle('2Day')
         self.setWindowIcon(QIcon('favicon.ico'))
+
+        btn = QPushButton('退出', self)
+        btn.clicked.connect(QCoreApplication.instance().quit)
+        btn.resize(70, 30)
+        btn.move(50, 50)
+
         self.show()
 
 
